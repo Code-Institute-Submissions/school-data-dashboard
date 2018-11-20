@@ -7,6 +7,8 @@ function makeGraphs(error, schoolexamdata) {
     
     schoolexamdata.forEach(function(d){
         d.enggrade = parseInt(d.enggrade);
+        d.mathgrade= parseInt(d.mathgrade);
+        d.attendance= parseInt(d.attendance);
         
         //d.examage = parseInt(d.examage);
     })
@@ -20,6 +22,8 @@ function makeGraphs(error, schoolexamdata) {
     show_math_grade_distribution(ndx);
     
     show_age_to_english_grade_correlation(ndx);
+    
+    show_attendance_to_maths_grade_correlation(ndx);
     
     dc.renderAll(); 
 } 
@@ -223,8 +227,51 @@ function show_age_to_english_grade_correlation(ndx) {
         .title(function(d) {
             return d.key[2];
         })
-       
+       .colorAccessor(function (d) {
+            return d.key[3];
+        })
+        .colors(genderColors)
         .dimension(ageDim)
         .group(englishGradeGroup)
+        .margins({top: 10, right: 50, bottom: 75, left: 75});
+}
+
+//code for scatter diagram comparing maths grade to attendance
+
+function show_attendance_to_maths_grade_correlation(ndx) {
+    
+    var genderColors = d3.scale.ordinal()
+        .domain(["F", "M"])
+        .range(["pink", "blue"]);
+    
+    var attDim = ndx.dimension(dc.pluck("attendance"));
+    var mathgradeDim = ndx.dimension(function(d) {
+       return [d.attendance, d.mathgrade, d.initials, d.gender];
+    });
+    
+    
+    var mathGradeGroup = mathgradeDim.group();
+    
+    var minAtt = attDim.bottom(1)[0].attendance;
+    var maxAtt = attDim.top(1)[0].attendance;
+    
+    dc.scatterPlot("#attendance_to_maths_grade_correlation")
+        .width(800)
+        .height(400)
+        .x(d3.scale.linear().domain([minAtt, maxAtt]))
+        .brushOn(false)
+        .symbolSize(8)
+        .clipPadding(10)
+        .xAxisLabel("Attendance")
+        .yAxisLabel("Math Grade")
+        .title(function(d) {
+            return d.key[2];
+        })
+       .colorAccessor(function (d) {
+            return d.key[3];
+        })
+        .colors(genderColors)
+        .dimension(attDim)
+        .group(mathGradeGroup)
         .margins({top: 10, right: 50, bottom: 75, left: 75});
 }

@@ -21,6 +21,25 @@ i) create a div
 ii) create a function
 iii) render the graph in the div.
 
+Graphs created
+--------------
 
+i) Bar chart showing number of exam entries by gender.
+ii)  Stacked bar chart for Grades achieved by boys and girls for English 
+iii) Stacked bar chart for Grades achieved by boys and girls for Maths
+iv)  Selector incldued to select results by cohort.
+v)  Scatter diagram showing if there is a correlation between age and grade acheived in English.
+vi)  Scatter diagram showing if there is a correlation between attendance and maths grade.
 
+UX
+--
+
+Considerations taken into account:  
+
+User story 1:  School would like a data dashboard showing pupils results by gender, cohort and to see
+if there is a correlation between age, grade and attendance.  It is important
+that the dashboard is clear and informative and easy to navigate around.
+
+User story 2:  Local authorities need this data to plan for next school year so it is important
+that the dashboard is clear and informative and easy to navigate around.
 
