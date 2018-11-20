@@ -5,6 +5,12 @@ queue()
 function makeGraphs(error, schoolexamdata) {
     var ndx = crossfilter(schoolexamdata);
     
+    schoolexamdata.forEach(function(d){
+        d.enggrade = parseInt(d.enggrade);
+        
+        //d.examage = parseInt(d.examage);
+    })
+    
     show_cohort_selector(ndx);
     
     show_gender_balance(ndx);
@@ -13,8 +19,11 @@ function makeGraphs(error, schoolexamdata) {
     
     show_math_grade_distribution(ndx);
     
+    show_age_to_english_grade_correlation(ndx);
+    
     dc.renderAll(); 
 } 
+
 
 // code for cohort selector showing how different cohorts are represented  by gender in the data //
 
@@ -117,7 +126,7 @@ function show_gender_balance(ndx) {
         .margins({top: 10, right: 100, bottom: 30, left: 30});
 }
    
- //code for maths grade distribution //
+ //code for maths grade distribution stacked bar chart //
  
         function show_math_grade_distribution(ndx) {
     
@@ -183,3 +192,39 @@ function show_gender_balance(ndx) {
         .margins({top: 10, right: 100, bottom: 30, left: 30});
 }
 
+//code for scatter diagram comparing english grade to age in weeks
+
+function show_age_to_english_grade_correlation(ndx) {
+    
+    var genderColors = d3.scale.ordinal()
+        .domain(["F", "M"])
+        .range(["pink", "blue"]);
+    
+    var ageDim = ndx.dimension(dc.pluck("examage"));
+    var gradeDim = ndx.dimension(function(d) {
+       return [d.examage, d.enggrade, d.initials, d.gender];
+    });
+    
+    
+    var englishGradeGroup = gradeDim.group();
+    
+    var minAge = ageDim.bottom(1)[0].examage;
+    var maxAge = ageDim.top(1)[0].examage;
+    
+    dc.scatterPlot("#age_to_english_grade_correlation")
+        .width(800)
+        .height(400)
+        .x(d3.scale.linear().domain([minAge, maxAge]))
+        .brushOn(false)
+        .symbolSize(8)
+        .clipPadding(10)
+        .xAxisLabel("Exam age in years")
+        .yAxisLabel("English Grade")
+        .title(function(d) {
+            return d.key[2];
+        })
+       
+        .dimension(ageDim)
+        .group(englishGradeGroup)
+        .margins({top: 10, right: 50, bottom: 75, left: 75});
+}
