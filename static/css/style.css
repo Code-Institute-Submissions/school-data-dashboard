@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.first-description-line{
+    display: flex;
+    justify-content: center;
+}
+
+.main-heading{
+    text-align: center;
+}
+
+.genderBalanceHeading{
+    text-align: center;
+
+}
