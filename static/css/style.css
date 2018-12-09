@@ -16,3 +16,31 @@
     text-align: center;
 
 }
+
+.english_section{
+    display:grid;
+    justify-content:center;
+    width:100%;
+}
+
+
+#english-correlation-age-heading{
+    display:grid;
+    justify-content: center;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+
+.maths-att-scatter{
+    display:grid;
+    justify-content:center;
+    width:100%;
+}
+
+#maths-correlation-attendance-heading{
+    display:grid;
+    justify-content: center;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+

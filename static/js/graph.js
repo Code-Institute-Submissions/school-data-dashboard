@@ -32,8 +32,8 @@ function makeGraphs(error, schoolexamdata) {
 // code for cohort selector showing how different cohorts are represented  by gender in the data //
 
 function show_cohort_selector(ndx) {
-    var dim = ndx.dimension(dc.pluck('cohort'));
-    var group = dim.group();
+    dim = ndx.dimension(dc.pluck('cohort'));
+    group = dim.group();
     
     dc.selectMenu("#cohort-selector")
         .dimension(dim)
@@ -55,9 +55,9 @@ function show_gender_balance(ndx) {
         .group(group)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)//
-        .elasticY(true)//
-        .xAxisLabel("Gender")
+        .xUnits(dc.units.ordinal)
+        
+        .xAxisLabel("Gender") 
         .yAxis().ticks(20);
         
    
@@ -66,7 +66,9 @@ function show_gender_balance(ndx) {
 //code for achievement by English grade stacked bar chart//
 
         
-        function show_english_grade_distribution(ndx) {
+function show_english_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
     
     function gradeByGender(dimension, enggrade) {
         return dimension.group().reduce(
@@ -90,7 +92,7 @@ function show_gender_balance(ndx) {
         );
     }
     
-    var dim = ndx.dimension(dc.pluck("gender"));
+    
     var gradeOne = gradeByGender(dim, "1");
     var gradeTwo = gradeByGender(dim, "2");
     var gradeThree = gradeByGender(dim, "3");
@@ -132,23 +134,28 @@ function show_gender_balance(ndx) {
    
  //code for maths grade distribution stacked bar chart //
  
-        function show_math_grade_distribution(ndx) {
+function show_math_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
     
     function gradeByGender(dimension, mathgrade) {
         return dimension.group().reduce(
-            function (s, t) {
-                s.total++;
-                if(t.mathgrade == mathgrade) {
-                    s.match++;
+            function (p, v) {
+                p.total++;
+                if(v.mathgrade == mathgrade) {
+                    p.match++;
                 }
-                return s;
+                return p;
             },
-            function (s, t) {
-                s.total--;
-                if(t.mathgrade == mathgrade) {
-                    s.match--;
+            function (p, v) {
+                console.log(p)
+                if (p){
+                p.total--;
+                if(v.mathgrade == mathgrade) {
+                    p.match--;
                 }
                 return ;
+            }
             },
             function () {
                 return {total: 0, match: 0};
@@ -156,7 +163,7 @@ function show_gender_balance(ndx) {
         );
     }
     
-    var dim = ndx.dimension(dc.pluck("gender"));
+    
     var gradeOne = gradeByGender(dim, "1");
     var gradeTwo = gradeByGender(dim, "2");
     var gradeThree = gradeByGender(dim, "3");
