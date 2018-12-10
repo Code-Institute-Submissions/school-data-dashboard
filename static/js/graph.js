@@ -147,15 +147,12 @@ function show_math_grade_distribution(ndx) {
                 }
                 return p;
             },
-            function (p, v) {
-                console.log(p)
-                if (p){
-                p.total--;
+    function (p, v) {
+         p.total--;
                 if(v.mathgrade == mathgrade) {
                     p.match--;
                 }
-                return ;
-            }
+                return p;
             },
             function () {
                 return {total: 0, match: 0};
