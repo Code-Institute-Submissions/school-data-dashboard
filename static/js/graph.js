@@ -8,6 +8,7 @@ function makeGraphs(error, schoolexamdata) {
     schoolexamdata.forEach(function(d){
         d.enggrade = parseInt(d.enggrade);
         d.mathgrade= parseInt(d.mathgrade);
+        d.scigrade= parseInt(d.scigrade);
         d.attendance= parseInt(d.attendance);
         
         //d.examage = parseInt(d.examage);
@@ -24,6 +25,16 @@ function makeGraphs(error, schoolexamdata) {
     show_age_to_english_grade_correlation(ndx);
     
     show_attendance_to_maths_grade_correlation(ndx);
+    
+    show_science_grade_distribution(ndx);
+    
+    show_history_grade_distribution(ndx);
+    
+    show_computing_grade_distribution(ndx);
+    
+    show_art_grade_distribution(ndx);
+    
+    show_food_grade_distribution(ndx); 
     
     dc.renderAll(); 
 } 
@@ -220,7 +231,7 @@ function show_age_to_english_grade_correlation(ndx) {
     var maxAge = ageDim.top(1)[0].examage;
     
     dc.scatterPlot("#age_to_english_grade_correlation")
-        .width(800)
+        .width(600)
         .height(400)
         .x(d3.scale.linear().domain([minAge, maxAge]))
         .brushOn(false)
@@ -260,7 +271,7 @@ function show_attendance_to_maths_grade_correlation(ndx) {
     var maxAtt = attDim.top(1)[0].attendance;
     
     dc.scatterPlot("#attendance_to_maths_grade_correlation")
-        .width(800)
+        .width(600)
         .height(400)
         .x(d3.scale.linear().domain([minAtt, maxAtt]))
         .brushOn(false)
@@ -279,3 +290,343 @@ function show_attendance_to_maths_grade_correlation(ndx) {
         .group(mathGradeGroup)
         .margins({top: 10, right: 50, bottom: 75, left: 75});
 }
+
+//science grades stacked bar chart
+
+function show_science_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
+    
+    function gradeByGender(dimension, scigrade) {
+        return dimension.group().reduce(
+            function (p, v) {
+                p.total++;
+                if(v.scigrade == scigrade) {
+                    p.match++;
+                }
+                return p;
+            },
+            function (p, v) {
+                p.total--;
+                if(v.scigrade == scigrade) {
+                    p.match--;
+                }
+                return p;
+            },
+            function () {
+                return {total: 0, match: 0};
+            }
+        );
+    }
+    
+    
+    var gradeOne = gradeByGender(dim, "1");
+    var gradeTwo = gradeByGender(dim, "2");
+    var gradeThree = gradeByGender(dim, "3");
+    var gradeFour = gradeByGender(dim, "4");
+    var gradeFive = gradeByGender(dim, "5");
+    var gradeSix = gradeByGender(dim, "6");
+    var gradeSeven = gradeByGender(dim, "7");
+    var gradeEight = gradeByGender(dim, "8");
+    var gradeNine = gradeByGender(dim, "9");
+    
+    
+    dc.barChart("#science_grade_distribution")
+        .width(300)
+        .height(300)
+        .dimension(dim)
+        .group(gradeOne, "1")
+        .stack(gradeTwo, "2")
+        .stack(gradeThree, "3")
+        .stack(gradeFour, "4")
+        .stack(gradeFive, "5")
+        .stack(gradeSix, "6")
+        .stack(gradeSeven, "7")
+        .stack(gradeEight, "8")
+        .stack(gradeNine, "9")
+        
+        
+        .valueAccessor(function(d) {
+            if(d.value.total > 0) {
+                return (d.value.match / d.value.total) * 100;
+            } else {
+                return 0;
+            }
+        })
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
+        .margins({top: 10, right: 100, bottom: 30, left: 30});
+}
+
+//History grades stacked bar chart
+
+function show_history_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
+    
+    function gradeByGender(dimension, histgrade) {
+        return dimension.group().reduce(
+            function (p, v) {
+                p.total++;
+                if(v.histgrade == histgrade) {
+                    p.match++;
+                }
+                return p;
+            },
+            function (p, v) {
+                p.total--;
+                if(v.histgrade == histgrade) {
+                    p.match--;
+                }
+                return p;
+            },
+            function () {
+                return {total: 0, match: 0};
+            }
+        );
+    }
+    
+    
+    var gradeOne = gradeByGender(dim, "1");
+    var gradeTwo = gradeByGender(dim, "2");
+    var gradeThree = gradeByGender(dim, "3");
+    var gradeFour = gradeByGender(dim, "4");
+    var gradeFive = gradeByGender(dim, "5");
+    var gradeSix = gradeByGender(dim, "6");
+    var gradeSeven = gradeByGender(dim, "7");
+    var gradeEight = gradeByGender(dim, "8");
+    var gradeNine = gradeByGender(dim, "9");
+    
+    
+    dc.barChart("#history_grade_distribution")
+        .width(300)
+        .height(300)
+        .dimension(dim)
+        .group(gradeOne, "1")
+        .stack(gradeTwo, "2")
+        .stack(gradeThree, "3")
+        .stack(gradeFour, "4")
+        .stack(gradeFive, "5")
+        .stack(gradeSix, "6")
+        .stack(gradeSeven, "7")
+        .stack(gradeEight, "8")
+        .stack(gradeNine, "9")
+        
+        
+        .valueAccessor(function(d) {
+            if(d.value.total > 0) {
+                return (d.value.match / d.value.total) * 100;
+            } else {
+                return 0;
+            }
+        })
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
+        .margins({top: 10, right: 100, bottom: 30, left: 30});
+}
+
+//Computer Science grades stacked bar chart
+
+function show_computing_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
+    
+    function gradeByGender(dimension, csgrade) {
+        return dimension.group().reduce(
+            function (p, v) {
+                p.total++;
+                if(v.csgrade == csgrade) {
+                    p.match++;
+                }
+                return p;
+            },
+            function (p, v) {
+                p.total--;
+                if(v.csgrade == csgrade) {
+                    p.match--;
+                }
+                return p;
+            },
+            function () {
+                return {total: 0, match: 0};
+            }
+        );
+    }
+    
+    
+    var gradeOne = gradeByGender(dim, "1");
+    var gradeTwo = gradeByGender(dim, "2");
+    var gradeThree = gradeByGender(dim, "3");
+    var gradeFour = gradeByGender(dim, "4");
+    var gradeFive = gradeByGender(dim, "5");
+    var gradeSix = gradeByGender(dim, "6");
+    var gradeSeven = gradeByGender(dim, "7");
+    var gradeEight = gradeByGender(dim, "8");
+    var gradeNine = gradeByGender(dim, "9");
+    
+    
+    dc.barChart("#computing_grade_distribution")
+        .width(300)
+        .height(300)
+        .dimension(dim)
+        .group(gradeOne, "1")
+        .stack(gradeTwo, "2")
+        .stack(gradeThree, "3")
+        .stack(gradeFour, "4")
+        .stack(gradeFive, "5")
+        .stack(gradeSix, "6")
+        .stack(gradeSeven, "7")
+        .stack(gradeEight, "8")
+        .stack(gradeNine, "9")
+        
+        
+        .valueAccessor(function(d) {
+            if(d.value.total > 0) {
+                return (d.value.match / d.value.total) * 100;
+            } else {
+                return 0;
+            }
+        })
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
+        .margins({top: 10, right: 100, bottom: 30, left: 30});
+}
+
+//Art grades stacked bar chart
+
+function show_art_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
+    
+    function gradeByGender(dimension, artgrade) {
+        return dimension.group().reduce(
+            function (p, v) {
+                p.total++;
+                if(v.artgrade == artgrade) {
+                    p.match++;
+                }
+                return p;
+            },
+            function (p, v) {
+                p.total--;
+                if(v.artgrade == artgrade) {
+                    p.match--;
+                }
+                return p;
+            },
+            function () {
+                return {total: 0, match: 0};
+            }
+        );
+    }
+    
+    
+    var gradeOne = gradeByGender(dim, "1");
+    var gradeTwo = gradeByGender(dim, "2");
+    var gradeThree = gradeByGender(dim, "3");
+    var gradeFour = gradeByGender(dim, "4");
+    var gradeFive = gradeByGender(dim, "5");
+    var gradeSix = gradeByGender(dim, "6");
+    var gradeSeven = gradeByGender(dim, "7");
+    var gradeEight = gradeByGender(dim, "8");
+    var gradeNine = gradeByGender(dim, "9");
+    
+    
+    dc.barChart("#art_grade_distribution")
+        .width(300)
+        .height(300)
+        .dimension(dim)
+        .group(gradeOne, "1")
+        .stack(gradeTwo, "2")
+        .stack(gradeThree, "3")
+        .stack(gradeFour, "4")
+        .stack(gradeFive, "5")
+        .stack(gradeSix, "6")
+        .stack(gradeSeven, "7")
+        .stack(gradeEight, "8")
+        .stack(gradeNine, "9")
+        
+        
+        .valueAccessor(function(d) {
+            if(d.value.total > 0) {
+                return (d.value.match / d.value.total) * 100;
+            } else {
+                return 0;
+            }
+        })
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
+        .margins({top: 10, right: 100, bottom: 30, left: 30});
+} 
+
+//Food Technology grades stacked bar chart
+
+function show_food_grade_distribution(ndx) {
+    
+    var dim = ndx.dimension(dc.pluck("gender"));
+    
+    function gradeByGender(dimension, foodgrade) {
+        return dimension.group().reduce(
+            function (p, v) {
+                p.total++;
+                if(v.foodgrade == foodgrade) {
+                    p.match++;
+                }
+                return p;
+            },
+            function (p, v) {
+                p.total--;
+                if(v.foodgrade == foodgrade) {
+                    p.match--;
+                }
+                return p;
+            },
+            function () {
+                return {total: 0, match: 0};
+            }
+        );
+    }
+    
+    
+    var gradeOne = gradeByGender(dim, "1");
+    var gradeTwo = gradeByGender(dim, "2");
+    var gradeThree = gradeByGender(dim, "3");
+    var gradeFour = gradeByGender(dim, "4");
+    var gradeFive = gradeByGender(dim, "5");
+    var gradeSix = gradeByGender(dim, "6");
+    var gradeSeven = gradeByGender(dim, "7");
+    var gradeEight = gradeByGender(dim, "8");
+    var gradeNine = gradeByGender(dim, "9");
+    
+    
+    dc.barChart("#food_grade_distribution")
+        .width(300)
+        .height(300)
+        .dimension(dim)
+        .group(gradeOne, "1")
+        .stack(gradeTwo, "2")
+        .stack(gradeThree, "3")
+        .stack(gradeFour, "4")
+        .stack(gradeFive, "5")
+        .stack(gradeSix, "6")
+        .stack(gradeSeven, "7")
+        .stack(gradeEight, "8")
+        .stack(gradeNine, "9")
+        
+        
+        .valueAccessor(function(d) {
+            if(d.value.total > 0) {
+                return (d.value.match / d.value.total) * 100;
+            } else {
+                return 0;
+            }
+        })
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
+        .margins({top: 10, right: 100, bottom: 30, left: 30});
+} 

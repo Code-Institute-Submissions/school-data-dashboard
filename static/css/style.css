@@ -10,6 +10,7 @@
 
 .main-heading{
     text-align: center;
+    font-weight:900;
 }
 
 .genderBalanceHeading{
@@ -17,10 +18,28 @@
 
 }
 
+.codes {
+   display: grid;
+    justify-content: center; 
+    width:  100%;
+    font-weight:300;
+}
+
+.narrative{
+    display: grid;
+    justify-content: center;
+    width:  100%;
+}
+
+.scattergraphs{
+    display: flex;
+    justify-content:space-around;
+}
+
 .english_section{
     display:grid;
     justify-content:center;
-    width:100%;
+    width:50%;
 }
 
 
@@ -42,5 +61,20 @@
     justify-content: center;
     font-family:sans-serif;
     font-weight: bold;
+}
+
+.othersubjects{
+    display:flex;
+    justify-content:space-around;
+}
+
+#othersubjectsheading{
+    text-align: center;
+    font-weight:700;
+}
+
+.moreothersubjects{
+    display:flex;
+    justify-content:space-around;
 }
 
