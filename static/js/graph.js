@@ -69,7 +69,7 @@ function show_gender_balance(ndx) {
         .xUnits(dc.units.ordinal)
         
         .xAxisLabel("Gender") 
-        .yAxis().ticks(20);
+        .yAxis().ticks(10);
         
    
 } 
@@ -536,7 +536,7 @@ function show_art_grade_distribution(ndx) {
     
     
     dc.barChart("#art_grade_distribution")
-        .width(300)
+        .width(400)
         .height(300)
         .dimension(dim)
         .group(gradeOne, "1")
@@ -604,7 +604,7 @@ function show_food_grade_distribution(ndx) {
     
     
     dc.barChart("#food_grade_distribution")
-        .width(300)
+        .width(400)
         .height(300)
         .dimension(dim)
         .group(gradeOne, "1")

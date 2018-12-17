@@ -1,3 +1,19 @@
+.cohort-heading{
+    display: grid;
+    margin:0;
+    background-color: #1500cc;
+    width: 10%;
+    text-align: center;
+    color: #ffffff;;
+
+}
+
+#cohort-selector{
+    position:fixed;
+    text-align: center;
+   
+}
+
 .container{
     display: flex;
     justify-content: space-around;
@@ -22,7 +38,7 @@
    display: grid;
     justify-content: center; 
     width:  100%;
-    font-weight:300;
+    font-weight:500;
 }
 
 .narrative{

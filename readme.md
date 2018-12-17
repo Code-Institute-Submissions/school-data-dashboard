@@ -83,7 +83,7 @@ Members of staff at my school were impressed at how selector worked to allow the
 ##Deployment
 ----------
 Site was put on github in xxx commits.
-Live link for the spa is 
+Live link for the spa is https://debbiect246.github.io/school-data-dashboard/
 
 ##Credits
 ---------
