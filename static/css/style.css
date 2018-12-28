@@ -4,7 +4,8 @@
     background-color: #1500cc;
     width: 10%;
     text-align: center;
-    color: #ffffff;;
+    color: #ffffff;
+    
 
 }
 
@@ -56,6 +57,7 @@
     display:grid;
     justify-content:center;
     width:50%;
+    text-align: center;
 }
 
 
@@ -79,6 +81,10 @@
     font-weight: bold;
 }
 
+#attendance_to_maths_grade_correlation{
+    useViewBoxResizing(true);
+}
+
 .othersubjects{
     display:flex;
     justify-content:space-around;
@@ -93,4 +99,20 @@
     display:flex;
     justify-content:space-around;
 }
+
+@media only screen and (max-width: 760px) {
+  body {
+    background-color: lightblue;
+}}
+
+.pupildata {
+    font-weight: bold;
+    text-align: center;
+}
+
+table{
+    margin:auto;
+}
+
+
 

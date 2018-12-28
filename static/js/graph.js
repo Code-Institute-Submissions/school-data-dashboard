@@ -141,6 +141,7 @@ function show_english_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+        
 }
    
  //code for maths grade distribution stacked bar chart //
@@ -209,6 +210,7 @@ function show_math_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+        
 }
 
 //code for scatter diagram comparing english grade to age in weeks
@@ -249,6 +251,7 @@ function show_age_to_english_grade_correlation(ndx) {
         .dimension(ageDim)
         .group(englishGradeGroup)
         .margins({top: 10, right: 50, bottom: 75, left: 75});
+        
 }
 
 //code for scatter diagram comparing maths grade to attendance
@@ -289,6 +292,7 @@ function show_attendance_to_maths_grade_correlation(ndx) {
         .dimension(attDim)
         .group(mathGradeGroup)
         .margins({top: 10, right: 50, bottom: 75, left: 75});
+        
 }
 
 //science grades stacked bar chart
@@ -357,6 +361,7 @@ function show_science_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+        
 }
 
 //History grades stacked bar chart
@@ -425,6 +430,7 @@ function show_history_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+        
 }
 
 //Computer Science grades stacked bar chart
@@ -493,6 +499,7 @@ function show_computing_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+        
 }
 
 //Art grades stacked bar chart
@@ -561,6 +568,8 @@ function show_art_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
+       
+        
 } 
 
 //Food Technology grades stacked bar chart
@@ -629,4 +638,28 @@ function show_food_grade_distribution(ndx) {
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(320).y(20).itemHeight(15).gap(5))
         .margins({top: 10, right: 100, bottom: 30, left: 30});
-} 
+        
+}
+
+d3.text("data/schoolexamdata.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("body")
+                    .append("table")
+
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; })
+                        .style("border", "1px black solid")
+                        .style("padding", "5px")
+                        .style("text-align","center")
+                        .on("mouseover", function(){d3.select(this).style("background-color", "aliceblue")})
+                        .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+                        .text(function(d){return d;})
+                        .style("font-size", "12px");
+            });
