@@ -5,8 +5,7 @@
     width: 10%;
     text-align: center;
     color: #ffffff;
-    
-    
+
 
 }
 
@@ -85,9 +84,9 @@
     font-weight: bold;
 }
 
-#attendance_to_maths_grade_correlation{
-    useViewBoxResizing(true);
-}
+
+   
+
 
 .othersubjects{
     display:flex;
@@ -104,9 +103,10 @@
     justify-content:space-around;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 560px) {
   body {
     background-color: lightblue;
+    
 }}
 
 .pupildata {
@@ -118,5 +118,16 @@ table{
     margin:auto;
 }
 
+@media only screen and (max-width: 560px) {
+  .narrative{
+    background-color: pink;
+    
+}}
+
+@media only screen and (max-width: 560px) {
+  .container{
+    flex-direction: column;
+    
+}}
 
 
