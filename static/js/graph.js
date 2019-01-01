@@ -11,7 +11,7 @@ function makeGraphs(error, schoolexamdata) {
         d.scigrade= parseInt(d.scigrade);
         d.attendance= parseInt(d.attendance);
         
-        //d.examage = parseInt(d.examage);
+        
     })
     
     show_cohort_selector(ndx);
@@ -640,6 +640,8 @@ function show_food_grade_distribution(ndx) {
         .margins({top: 10, right: 100, bottom: 30, left: 30});
         
 }
+
+//code for chart of all students data
 
 d3.text("data/schoolexamdata.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
