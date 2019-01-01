@@ -130,4 +130,14 @@ table{
     
 }}
 
+@media only screen and (max-width: 560px) {
+  .othersubjects{
+    flex-direction: column;
+    
+}}
 
+@media only screen and (max-width: 560px) {
+  .moreothersubjects{
+    flex-direction: column;
+    
+}}
