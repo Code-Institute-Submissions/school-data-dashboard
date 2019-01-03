@@ -663,5 +663,5 @@ d3.text("data/schoolexamdata.csv", function(data) {
                         .on("mouseover", function(){d3.select(this).style("background-color", "aliceblue")})
                         .on("mouseout", function(){d3.select(this).style("background-color", "white")})
                         .text(function(d){return d;})
-                        .style("font-size", "12px");
+                        .style("font-size", "10px");
             });

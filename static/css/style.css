@@ -1,5 +1,5 @@
 .cohort-heading{
-    display: grid;
+    display:grid;
     margin:0;
     background-color: #1500cc;
     width: 10%;
@@ -103,24 +103,71 @@
     justify-content:space-around;
 }
 
-@media only screen and (max-width: 560px) {
-  body {
-    background-color: lightblue;
-    
-}}
+
 
 .pupildata {
     font-weight: bold;
     text-align: center;
 }
 
+.infographic{
+  font-weight:700;
+  
+}
+
+.ofsted-data{
+  background-color: lightgrey;
+  width: 300px;
+  border: 5px solid green;
+  padding: 5px;
+  margin: 5px;
+  margin:auto;
+}
+
+.counties{
+  font-weight:700;
+  
+}
+
+.otherschools{
+  background-color: lightgrey;
+  width: 300px;
+  border: 5px solid green;
+  padding: 5px;
+  margin: 5px;
+  margin:auto;
+}
+
 table{
     margin:auto;
+    width: 50%;
 }
+
+/* media queries for html elements*/
+
+
+@media only screen and (max-width: 560px) {
+  .cohort-heading{
+    background-color: blue;
+    margin: auto;
+    width: 50%;
+    
+    
+}}
+
+@media only screen and (max-width: 560px) {
+  .cohort-selector{
+    background-color: blue;
+    float: right;
+    
+}}
+
 
 @media only screen and (max-width: 560px) {
   .narrative{
-    background-color: pink;
+    background-color: lightgrey;
+    margin: auto;
+    text-align: center;
     
 }}
 
@@ -139,5 +186,11 @@ table{
 @media only screen and (max-width: 560px) {
   .moreothersubjects{
     flex-direction: column;
+    
+}}
+
+@media only screen and (max-width: 560px) {
+  .pupildata{
+    margin:auto;
     
 }}
