@@ -127,6 +127,8 @@ User story 4 features implemented:  White background for dashboard implemeted wi
 
 User story 5 features implemented:  d3 used to show data for all students in a chart for user to see.  As user goes through data in chart,
 cell selected highlights in pale blue.
+
+User story 6 features implemented:  links to national data by county and infographic added so that user can compare data from school against national data.
  
 
 
@@ -148,6 +150,8 @@ vii) Created smaller stacked bar graphs for other subjects.  Feedback from users
 Members of staff at my school were impressed at how selector worked to allow them to analyse data by cohort and gender.
 viii) Created overall table of results showing results each student got for reference purposes of user.  Checked it rendered as expected on screen.
 All good.  
+ix) National data links checked to ensure that they work and that they open in new window.  Worked as expected.
+x)  Responsive tested throughout project.  Media queries and containers checked for each graph.  Changes made as work progressed.  All work as expected.
 
 
 
