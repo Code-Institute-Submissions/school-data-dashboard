@@ -157,7 +157,7 @@ x)  Responsive tested throughout project.  Media queries and containers checked 
 
 Deployment
 ----------
-Site was put on github using 19 commits.
+Site was put on github using 25 commits.
 Live link for the spa is https://debbiect246.github.io/school-data-dashboard/
  
 Credits
@@ -169,5 +169,6 @@ Thanks to my mentor who provided support and encouragement when needed and gave 
 making my cohort selector area larger, so that it was noticeable, and also suggesting that the cohort selector button
 stayed fixed in position as the screen was scrolled so that a user could use it to select cohorts to analyse further on 
 down the spa for other subjects.
+Thanks to code institute student support who encouraged me to keep going with my project despite it being hard to remain motivated at times.
 
 
