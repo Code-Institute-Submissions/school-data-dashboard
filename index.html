@@ -21,24 +21,28 @@
 
 </head>
 <body>
-    
+    <!-- main heading for page -->
     <div class="main-heading">
-        <h1>Analysis of  2018 Exam results at Slyne Academy, Wembley, HA9 8BS</h1>
+        <h1><strong>Analysis of  2018 Exam results at Slyne Academy, Wembley, HA9 8BS</strong></h1>
     </div>
         
-    
+    <!-- cohort selector placed on page-->
     <div>
         <div class="cohort-heading">Please select cohort using the Cohort selector below</div>
         <div id="cohort-selector"></div> 
         
     </div>
     
+    <!--description of each cohort code placed on page using css flexbox for styling-->
+    
     <div class ="codes"> Key to cohort codes:  AFCB - Afro Caribbean children,  EAL - Children for whom English is an additional language</div>
     <div class= "codes"> EHC - children who have special educational needs, LAC - looked after children,  PP - children who receive free school meals</div>
     <div class="codes"> OTH = pupils who do not fit into any of the categories above.</div>
     <br>
+    
+    <!-- bar charts for gender, English and Maths grades section -->
         
-    <div class="container">
+    <div class="barcontainer">
         <div id="genderBalanceHeading">Number of pupils taking exams</div>
         <div id="gender-balance"></div>
         
@@ -51,37 +55,43 @@
     </div>
     
     
+    <!-- narrative on bar charts in separate divs with spacing at end to provide space between comments and scatter diagrams that follow-->
     
     <div class="narrative">In English and Maths, boys do slightly better than boys and in maths 73% of girls and 80% of boys achieved at least grade 4</div>
     <div class="narrative">EAL pupils in Maths get the best grades overall and Afro-Carribean girls get the worst results overall in English and maths </div>
     <br>
+    <br>
     
-    <div class="scattergraphs">
+    <!-- using bootstrap to place scatter diagrams side by side on page -->
     
-        <div class="english_section"> 
+    <div class="container">
+    
+        <div class="row">
             <div id="english-correlation-age-heading">
-                <h5>Correlation between English Grade and Age at exam date</h5>
-            </div>    
-                <div id="age_to_english_grade_correlation"></div>
-                <div class="narrative"><p class="narrative">There is a moderate negative correlation between English grade and age at exam date.  Older pupils generally do better than younger pupils</p>
-               
-                
+               <h5>Scatter diagrams showing correlation between English Grade and Age at exam date and maths grade and attendance</h5>
+               <br>
+            </div>
+        </div>
+        <div class="row">   
+            <div id="age_to_english_grade_correlation"></div>
+            <div id="attendance_to_maths_grade_correlation"</div>
+                <br>
+        </div> 
+        
+        <!-- narrative on scatter diagrams placed in separate divs using bootstrap-->
+        <div class="row">
+            <div class="narrative"><p>There is a moderate negative correlation between English grade and age at exam date.  Older pupils generally do better than younger pupils</p>
+            </div>   
+            <div class="narrative"><p>There is a moderate positive correlation between Maths grade and attendance. Pupils with attendance over 95% generally do better than pupils with lesser attendance.</p>
+            </div>
+            
         </div>
     
-        <div class="maths-att-scatter">
-        <div id="maths-correlation-attendance-heading">
-                <h5>Correlation between attendance and maths grade</h5>
-            </div>
-                <div id="attendance_to_maths_grade_correlation"</div>
-        </div>
-        
-        <div class="narrative"><p class="narrative"> There is a moderate positive correlation between Maths grade and attendance. Pupils with attendance over 95% generally do better than pupils with lesser attendance </p>
-             <br>
-        </div>
-        
     </div>
     
-    <div id="othersubjectsheading"><h2>Graphs for other subjects</h2></div>
+    <!--other subject graphs styled using css flexbox-->
+    
+    <div id="othersubjectsheading"><h4><strong>Graphs for other subjects</strong></h4></div>
     
     
     <div class="othersubjects">
@@ -91,15 +101,14 @@
     
         <div>Percentage of pupils scoring each History grade</div>
         <div id="history_grade_distribution"></div>
+    
+    </div>
+    
+    <div class="moreothersubjects">
         
         <div>Percentage of pupils scoring each Computing grade</div>
         <div id="computing_grade_distribution"></div>
         
-        
-    </div>
-    
-    <div class="moreothersubjects">
-    
         <div>Percentage of pupils scoring each Art grade</div>
         <div id="art_grade_distribution"></div>
     
@@ -109,17 +118,26 @@
        
     </div>
     
-    <div class="infographic">2018 OFSTED national exam data infographic for pupils in England</div>
+    <!-- links to other useful websites provided here, each placed in their own div-->
+    
+    <div class="infographic">2018 OFQAL (Office for qualitiy assurance in national qualifications) national exam data infographic for pupils in England</div>
+    <br>
     <div class="ofsted-data"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/735678/GCSE_Infographic_23.8.18.pdf" target="_blank">click here for Ofsted infographic</a></a></div>
+    <br>
+    <div class="narrative">The infographic summaries how pupils across England have perfomed in the Summer 2018 exams</div>
+    <br>
     <div class="narrative">Overall pupils at Slyne Academy do better than the national average in England for passes in English and Maths</div>
     <br>
     <br>
-    <div class="counties">How did schools in other counties do?</div>
+    <div class="counties">How did schools in other English counties do?</div>
+    <br>
     <div class="otherschools"><a href="https://analytics.ofqual.gov.uk/apps/2018/GCSE/County/" target="_blank">Click here to find data on ahievement by county and subject</a></div>
     <br>
+    <div class="narrative">The interactive map of England accessed through the link above allows you to look at subject achievement for each English county.</div>
+    <br>
     <br>
     
-    
+    <!-- table of data for all year 11 pupils who took exams in Summer 2018 at Slyne Academy -->
     <div class="pupildata">Slyne Academy Individual students results for June 2018 Exams</div
     
     

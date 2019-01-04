@@ -233,7 +233,7 @@ function show_age_to_english_grade_correlation(ndx) {
     var maxAge = ageDim.top(1)[0].examage;
     
     dc.scatterPlot("#age_to_english_grade_correlation")
-        .width(600)
+        .width(500)
         .height(400)
         .x(d3.scale.linear().domain([minAge, maxAge]))
         .brushOn(false)
@@ -274,7 +274,7 @@ function show_attendance_to_maths_grade_correlation(ndx) {
     var maxAtt = attDim.top(1)[0].attendance;
     
     dc.scatterPlot("#attendance_to_maths_grade_correlation")
-        .width(600)
+        .width(500)
         .height(400)
         .x(d3.scale.linear().domain([minAtt, maxAtt]))
         .brushOn(false)
@@ -336,7 +336,7 @@ function show_science_grade_distribution(ndx) {
     
     
     dc.barChart("#science_grade_distribution")
-        .width(300)
+        .width(400)
         .height(300)
         .dimension(dim)
         .group(gradeOne, "1")
@@ -405,7 +405,7 @@ function show_history_grade_distribution(ndx) {
     
     
     dc.barChart("#history_grade_distribution")
-        .width(300)
+        .width(400)
         .height(300)
         .dimension(dim)
         .group(gradeOne, "1")
@@ -474,7 +474,7 @@ function show_computing_grade_distribution(ndx) {
     
     
     dc.barChart("#computing_grade_distribution")
-        .width(300)
+        .width(400)
         .height(300)
         .dimension(dim)
         .group(gradeOne, "1")

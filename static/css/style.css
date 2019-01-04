@@ -6,7 +6,6 @@
     text-align: center;
     color: #ffffff;
 
-
 }
 
 #cohort-selector{
@@ -18,7 +17,7 @@
    
 }
 
-.container{
+.barcontainer{
     display: flex;
     justify-content: space-around;
 }
@@ -42,39 +41,34 @@
    display: grid;
     justify-content: center; 
     width:  100%;
-    font-weight:500;
+    font-weight:400;
 }
 
 .narrative{
     display: grid;
     justify-content: center;
-    width:  100%;
+    width:  90%;
+    margin: auto;
+    
 }
 
 .scattergraphs{
-    display: flex;
-    justify-content:space-around;
-}
-
-.english_section{
-    display:grid;
-    justify-content:center;
-    width:50%;
-    text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 
 #english-correlation-age-heading{
-    display:grid;
-    justify-content: center;
+    margin: auto;
     font-family:sans-serif;
     font-weight: bold;
 }
 
 .maths-att-scatter{
-    display:grid;
-    justify-content:center;
-    width:100%;
+  margin: auto;
+    width:50%;
+    text-align: center;
+    
 }
 
 #maths-correlation-attendance-heading{
@@ -84,10 +78,6 @@
     font-weight: bold;
 }
 
-
-   
-
-
 .othersubjects{
     display:flex;
     justify-content:space-around;
@@ -95,7 +85,7 @@
 
 #othersubjectsheading{
     text-align: center;
-    font-weight:700;
+    font-weight: bold;
 }
 
 .moreothersubjects{
@@ -103,15 +93,15 @@
     justify-content:space-around;
 }
 
-
-
 .pupildata {
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
 }
 
 .infographic{
   font-weight:700;
+  text-align: center;
+  margin: auto;
   
 }
 
@@ -122,10 +112,13 @@
   padding: 5px;
   margin: 5px;
   margin:auto;
+  text-align: center;
 }
 
 .counties{
   font-weight:700;
+  text-align: center;
+  margin: auto;
   
 }
 
@@ -156,9 +149,10 @@ table{
 }}
 
 @media only screen and (max-width: 560px) {
-  .cohort-selector{
-    background-color: blue;
-    float: right;
+  #cohort-selector{
+    position: fixed;
+    top: 50%;
+    right: 2%;
     
 }}
 
@@ -168,12 +162,21 @@ table{
     background-color: lightgrey;
     margin: auto;
     text-align: center;
+    width: 90%;
     
 }}
 
 @media only screen and (max-width: 560px) {
-  .container{
+  .barcontainer{
     flex-direction: column;
+    
+}}
+
+@media only screen and (max-width: 560px) {
+  #age_to_english_grade_correlation{
+    display: flex;
+    flex-direction: column;
+    width:70%;
     
 }}
 
@@ -192,5 +195,6 @@ table{
 @media only screen and (max-width: 560px) {
   .pupildata{
     margin:auto;
+    width: 30%;
     
 }}
